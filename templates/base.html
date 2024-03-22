@@ -75,7 +75,7 @@
                   <path d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13
                   13.768V2a1 1 0 0 0-1-1H4.268z"></path>
                 </svg>
-                Bookmarks
+                Favorites
               </a>
             </li>
             <li>
@@ -119,11 +119,11 @@
       {% else %}
         <div class="nav-item me-4">
           <a class="link text-white text-decoration-none" href="{% url 'accounts:registration' %}">
-            Sign Up
+            Register
           </a>
         </div>
         <div class="nav-item">
-          <a class="link text-white text-decoration-none" href="{% url 'accounts:login' %}">Sign In</a>
+          <a class="link text-white text-decoration-none" href="{% url 'accounts:login' %}">Login</a>
         </div>
       {% endif %}
     </div>

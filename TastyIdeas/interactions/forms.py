@@ -6,5 +6,5 @@ class RecipeCommentForm(forms.Form):
         'class': 'form-control',
         'placeholder': 'Add a comment...',
         'type': 'text',
-        'maxlength': '516',
+        'maxlength': '500',
     }))
