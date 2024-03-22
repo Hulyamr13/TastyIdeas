@@ -93,10 +93,8 @@ class UserProfileForm(auth_forms.UserChangeForm):
 
     def __init__(self, *args, **kwargs):
         """
-        The initial for the form field occurs here, since
-        this field is not included in the tuple of fields,
-        so that the server does not accept information from
-        this field, but for the user to see it filled out.
+        Тук се задава началната стойност за полето на формуляра, тъй като то не е включено в кортежа с полета.
+        Това позволява на потребителя да вижда попълненото поле, без да сървърът да приема информация от него.
         """
         instance = kwargs.get('instance')
         kwargs['initial'] = {'email': instance.email}

@@ -4,6 +4,7 @@ from uuid import uuid4
 
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser, Group, Permission
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
@@ -21,15 +22,15 @@ class User(AbstractUser):
     is_verified = models.BooleanField(default=False)
     slug = models.SlugField(unique=True)
     groups = models.ManyToManyField(
-        to=Group,  # Променено от 'auth.Group' на 'Group'
-        related_name='custom_user_groups',  # Променено от 'user_set' на 'custom_user_groups'
+        to=Group,
+        related_name='custom_user_groups',
         blank=True,
         verbose_name='groups',
         help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.',
     )
     user_permissions = models.ManyToManyField(
-        to=Permission,  # Променено от 'auth.Permission' на 'Permission'
-        related_name='custom_user_permissions',  # Променено от 'user_set' на 'custom_user_permissions'
+        to=Permission,
+        related_name='custom_user_permissions',
         blank=True,
         verbose_name='user permissions',
         help_text='Specific permissions for this user.',
@@ -42,7 +43,10 @@ class User(AbstractUser):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.username)
-        return super().save()
+        try:
+            super().save(*args, **kwargs)
+        except ValidationError as e:
+            logger.error(f"Error saving user {self.username}: {e}")
 
     def clean(self):
         self.email = self.email.lower()
@@ -52,13 +56,17 @@ class User(AbstractUser):
         valid_verifications = EmailVerification.objects.valid_user_verifications(user=self).order_by('-created')
         if valid_verifications.exists():
             elapsed_time = now() - valid_verifications.first().created
+            return elapsed_time.total_seconds()
         else:
-            elapsed_time = timedelta(seconds=settings.EMAIL_SEND_INTERVAL_SECONDS)
-        return elapsed_time.seconds
+            return settings.EMAIL_SEND_INTERVAL_SECONDS
 
     def create_email_verification(self):
         expiration = now() + timedelta(hours=settings.EMAIL_EXPIRATION_HOURS)
-        return EmailVerification.objects.create(code=uuid4(), user=self, expiration=expiration)
+        code = uuid4()
+        try:
+            return EmailVerification.objects.create(code=code, user=self, expiration=expiration)
+        except Exception as e:
+            logger.error(f"Error creating email verification for {self.email}: {e}")
 
     def is_request_user_matching(self, request):
         return self == request.user
@@ -92,7 +100,7 @@ class EmailVerification(models.Model):
         msg = convert_html_to_email_message(subject_template_name, html_email_template_name, [self.user.email], context)
         msg.send()
 
-        logger.info(f'Request to send a verification email to {self.user.email}')
+        logger.info(f'Successfully sent a verification email to {self.user.email}')
 
     def is_expired(self):
         return self.expiration < now()
