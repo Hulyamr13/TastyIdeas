@@ -1,0 +1,154 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="{% static 'icon/icon.png' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <title>{{ title }}</title>
+</head>
+<body>
+
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark" data-bs-theme="dark">
+  <div class="container">
+    <span class="navbar-brand mb-1">Tasty</span>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url 'recipe:index' %}">Recipes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'interactions:bookmarks' %}">Favorite Recipes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#footer">About</a>
+        </li>
+      </ul>
+      {% if request.user.is_authenticated %}
+        <div class="dropdown">
+          <a class="dropdown-toggle text-decoration-none link-light" role="button" data-bs-toggle="dropdown"
+             aria-expanded="false">
+            <span>{{ request.user.username }}</span>
+            <img class="rounded-circle object-fit-cover mb-1 ms-1" width="32" height="32"
+                 src="{% if request.user.image %}
+                        {{ request.user.image.url }}
+                      {% else %}
+                        {% static 'img/default_user_image.png' %}
+                      {% endif %}"
+                 alt="profile">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li>
+              <p class="text-center m-0">Menubar</p>
+            </li>
+            <li>
+              <hr class="dropdown-divider bg-dark">
+            </li>
+            <li>
+              <a href="{% url 'accounts:profile' request.user.slug %}" class="dropdown-item text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-house-fill mb-1" viewBox="0 0 16 16">
+                  <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0
+                  .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"></path>
+                  <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"></path>
+                </svg>
+                Profile
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'interactions:bookmarks' %}" class="dropdown-item text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-bookmarks-fill mb-1" viewBox="0 0 16 16">
+                  <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7
+                  13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4z"></path>
+                  <path d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13
+                  13.768V2a1 1 0 0 0-1-1H4.268z"></path>
+                </svg>
+                Bookmarks
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider bg-dark">
+            </li>
+            {% if request.user.is_staff %}
+              <li>
+                <a href="{% url 'admin:index' %}" class="dropdown-item text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                       class="bi bi-gear-fill mb-1" viewBox="0 0 16 16">
+                    <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464
+                    0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987
+                    1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0
+                    1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1
+                    2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698
+                    2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397
+                    0-2.81l-.34-.1a1.464 1.464 0 0
+                    1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0
+                    1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"></path>
+                  </svg>
+                  Administration
+                </a>
+              </li>
+              <li>
+                <hr class="dropdown-divider bg-dark">
+              </li>
+            {% endif %}
+            <li>
+              <a href="{% url 'accounts:logout' %}" class="dropdown-item text-danger">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-door-open-fill mb-1" viewBox="0 0 16 16">
+                  <path d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0
+                0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2h.5a.5.5 0 0 1 .5.5V15h-1V2zm-2.5
+                8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"></path>
+                </svg>
+                Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      {% else %}
+        <div class="nav-item me-4">
+          <a class="link text-white text-decoration-none" href="{% url 'accounts:registration' %}">
+            Sign Up
+          </a>
+        </div>
+        <div class="nav-item">
+          <a class="link text-white text-decoration-none" href="{% url 'accounts:login' %}">Sign In</a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</nav>
+
+{% block content %} {% endblock %}
+
+<footer id="footer" class="bg-dark">
+  <div class="container text-center text-white py-4">
+    <h3>Discover More</h3>
+    <p>
+      Dive deeper into the world of flavors and culinary delights with Tasty. Explore our recipes, articles, and cooking tips to elevate your culinary skills.
+    </p>
+    <hr class="divider border-2">
+    <small>
+      Get ready to embark on a delicious journey with <a class="text-white">Tasty</a> | Est. 2024
+    </small>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+{% block script %} {% endblock %}
+</body>
+</html>

@@ -1,0 +1,1790 @@
+[2024/Mar/21 18:21:37] - ERROR - log.py on line 241:
+Internal Server Error: /admin/recipe/category/add/
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "recipe_recipe_slug_key"
+DETAIL:  Key (slug)=() already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1886, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1799, in _changeform_view
+    self.save_related(request, form, formsets, not add)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1255, in save_related
+    self.save_formset(request, form, formset, change=change)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1243, in save_formset
+    formset.save()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\forms\models.py", line 784, in save
+    return self.save_existing_objects(commit) + self.save_new_objects(commit)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\forms\models.py", line 944, in save_new_objects
+    self.new_objects.append(self.save_new(form, commit=commit))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\forms\models.py", line 1142, in save_new
+    return super().save_new(form, commit=commit)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\forms\models.py", line 757, in save_new
+    return form.save(commit=commit)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\forms\models.py", line 542, in save
+    self.instance.save()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "recipe_recipe_slug_key"
+DETAIL:  Key (slug)=() already exists.
+
+[2024/Mar/21 18:21:37] - ERROR - basehttp.py on line 212:
+"POST /admin/recipe/category/add/ HTTP/1.1" 500 217300
+
+
+[2024/Mar/21 18:23:02] - ERROR - log.py on line 241:
+Internal Server Error: /admin/recipe/category/add/
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "recipe_recipe_slug_key"
+DETAIL:  Key (slug)=() already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1886, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1799, in _changeform_view
+    self.save_related(request, form, formsets, not add)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1255, in save_related
+    self.save_formset(request, form, formset, change=change)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1243, in save_formset
+    formset.save()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\forms\models.py", line 784, in save
+    return self.save_existing_objects(commit) + self.save_new_objects(commit)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\forms\models.py", line 944, in save_new_objects
+    self.new_objects.append(self.save_new(form, commit=commit))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\forms\models.py", line 1142, in save_new
+    return super().save_new(form, commit=commit)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\forms\models.py", line 757, in save_new
+    return form.save(commit=commit)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\forms\models.py", line 542, in save
+    self.instance.save()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "recipe_recipe_slug_key"
+DETAIL:  Key (slug)=() already exists.
+
+[2024/Mar/21 18:23:02] - ERROR - basehttp.py on line 212:
+"POST /admin/recipe/category/add/ HTTP/1.1" 500 217300
+
+
+[2024/Mar/21 18:23:08] - ERROR - log.py on line 241:
+Internal Server Error: /admin/recipe/category/add/
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "recipe_recipe_slug_key"
+DETAIL:  Key (slug)=() already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1886, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1799, in _changeform_view
+    self.save_related(request, form, formsets, not add)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1255, in save_related
+    self.save_formset(request, form, formset, change=change)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1243, in save_formset
+    formset.save()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\forms\models.py", line 784, in save
+    return self.save_existing_objects(commit) + self.save_new_objects(commit)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\forms\models.py", line 944, in save_new_objects
+    self.new_objects.append(self.save_new(form, commit=commit))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\forms\models.py", line 1142, in save_new
+    return super().save_new(form, commit=commit)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\forms\models.py", line 757, in save_new
+    return form.save(commit=commit)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\forms\models.py", line 542, in save
+    self.instance.save()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "recipe_recipe_slug_key"
+DETAIL:  Key (slug)=() already exists.
+
+[2024/Mar/21 18:23:08] - ERROR - basehttp.py on line 212:
+"POST /admin/recipe/category/add/ HTTP/1.1" 500 217300
+
+
+[2024/Mar/21 18:23:13] - ERROR - log.py on line 241:
+Internal Server Error: /admin/recipe/category/add/
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "recipe_recipe_slug_key"
+DETAIL:  Key (slug)=() already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1886, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1799, in _changeform_view
+    self.save_related(request, form, formsets, not add)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1255, in save_related
+    self.save_formset(request, form, formset, change=change)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1243, in save_formset
+    formset.save()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\forms\models.py", line 784, in save
+    return self.save_existing_objects(commit) + self.save_new_objects(commit)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\forms\models.py", line 944, in save_new_objects
+    self.new_objects.append(self.save_new(form, commit=commit))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\forms\models.py", line 1142, in save_new
+    return super().save_new(form, commit=commit)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\forms\models.py", line 757, in save_new
+    return form.save(commit=commit)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\forms\models.py", line 542, in save
+    self.instance.save()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "recipe_recipe_slug_key"
+DETAIL:  Key (slug)=() already exists.
+
+[2024/Mar/21 18:23:13] - ERROR - basehttp.py on line 212:
+"POST /admin/recipe/category/add/ HTTP/1.1" 500 217322
+
+
+[2024/Mar/21 18:23:52] - ERROR - log.py on line 241:
+Internal Server Error: /admin/accounts/user/4/change/
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+psycopg2.errors.ForeignKeyViolation: insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_auth_user_id"
+DETAIL:  Key (user_id)=(5) is not present in table "auth_user".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1889, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\transaction.py", line 263, in __exit__
+    connection.commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 337, in commit
+    self._commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.IntegrityError: insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_auth_user_id"
+DETAIL:  Key (user_id)=(5) is not present in table "auth_user".
+
+[2024/Mar/21 18:23:52] - ERROR - basehttp.py on line 212:
+"POST /admin/accounts/user/4/change/ HTTP/1.1" 500 136713
+
+
+[2024/Mar/21 18:26:27] - ERROR - log.py on line 241:
+Internal Server Error: /admin/recipe/category/add/
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+psycopg2.errors.ForeignKeyViolation: insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_auth_user_id"
+DETAIL:  Key (user_id)=(5) is not present in table "auth_user".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1886, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\transaction.py", line 263, in __exit__
+    connection.commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 337, in commit
+    self._commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.IntegrityError: insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_auth_user_id"
+DETAIL:  Key (user_id)=(5) is not present in table "auth_user".
+
+[2024/Mar/21 18:26:27] - ERROR - basehttp.py on line 212:
+"POST /admin/recipe/category/add/ HTTP/1.1" 500 138448
+
+
+[2024/Mar/21 18:28:23] - WARNING - log.py on line 241:
+Forbidden (CSRF token from POST incorrect.): /admin/login/
+
+
+[2024/Mar/21 18:28:23] - WARNING - basehttp.py on line 212:
+"POST /admin/login/?next=/admin/ HTTP/1.1" 403 2518
+
+
+[2024/Mar/21 19:44:21] - ERROR - log.py on line 241:
+Internal Server Error: /admin/accounts/user/4/change/
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+psycopg2.errors.ForeignKeyViolation: insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_auth_user_id"
+DETAIL:  Key (user_id)=(5) is not present in table "auth_user".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1889, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\transaction.py", line 263, in __exit__
+    connection.commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 337, in commit
+    self._commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.IntegrityError: insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_auth_user_id"
+DETAIL:  Key (user_id)=(5) is not present in table "auth_user".
+
+[2024/Mar/21 19:44:21] - ERROR - basehttp.py on line 212:
+"POST /admin/accounts/user/4/change/ HTTP/1.1" 500 136704
+
+
+[2024/Mar/21 19:45:33] - ERROR - log.py on line 241:
+Internal Server Error: /admin/recipe/category/add/
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+psycopg2.errors.ForeignKeyViolation: insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_auth_user_id"
+DETAIL:  Key (user_id)=(5) is not present in table "auth_user".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1886, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\transaction.py", line 263, in __exit__
+    connection.commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 337, in commit
+    self._commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.IntegrityError: insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_auth_user_id"
+DETAIL:  Key (user_id)=(5) is not present in table "auth_user".
+
+[2024/Mar/21 19:45:33] - ERROR - basehttp.py on line 212:
+"POST /admin/recipe/category/add/ HTTP/1.1" 500 138402
+
+
+[2024/Mar/21 19:49:20] - ERROR - log.py on line 241:
+Internal Server Error: /admin/recipe/category/add/
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+psycopg2.errors.ForeignKeyViolation: insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_auth_user_id"
+DETAIL:  Key (user_id)=(5) is not present in table "auth_user".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1886, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\transaction.py", line 263, in __exit__
+    connection.commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 337, in commit
+    self._commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.IntegrityError: insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_auth_user_id"
+DETAIL:  Key (user_id)=(5) is not present in table "auth_user".
+
+[2024/Mar/21 19:49:20] - ERROR - basehttp.py on line 212:
+"POST /admin/recipe/category/add/ HTTP/1.1" 500 138886
+
+
+[2024/Mar/21 19:49:27] - ERROR - log.py on line 241:
+Internal Server Error: /admin/recipe/category/add/
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+psycopg2.errors.ForeignKeyViolation: insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_auth_user_id"
+DETAIL:  Key (user_id)=(5) is not present in table "auth_user".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1886, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\transaction.py", line 263, in __exit__
+    connection.commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 337, in commit
+    self._commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.IntegrityError: insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_auth_user_id"
+DETAIL:  Key (user_id)=(5) is not present in table "auth_user".
+
+[2024/Mar/21 19:49:27] - ERROR - basehttp.py on line 212:
+"POST /admin/recipe/category/add/ HTTP/1.1" 500 138534
+
+
+[2024/Mar/21 19:49:58] - ERROR - log.py on line 241:
+Internal Server Error: /admin/accounts/user/1/delete/
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+psycopg2.errors.ForeignKeyViolation: insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_auth_user_id"
+DETAIL:  Key (user_id)=(5) is not present in table "auth_user".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 2106, in delete_view
+    return self._delete_view(request, object_id, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\transaction.py", line 263, in __exit__
+    connection.commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 337, in commit
+    self._commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.IntegrityError: insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_auth_user_id"
+DETAIL:  Key (user_id)=(5) is not present in table "auth_user".
+
+[2024/Mar/21 19:49:58] - ERROR - basehttp.py on line 212:
+"POST /admin/accounts/user/1/delete/ HTTP/1.1" 500 130739
+
+
+[2024/Mar/21 19:53:45] - ERROR - log.py on line 241:
+Internal Server Error: /admin/accounts/user/1/delete/
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+psycopg2.errors.ForeignKeyViolation: insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_auth_user_id"
+DETAIL:  Key (user_id)=(5) is not present in table "auth_user".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 2106, in delete_view
+    return self._delete_view(request, object_id, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\transaction.py", line 263, in __exit__
+    connection.commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 337, in commit
+    self._commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.IntegrityError: insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_auth_user_id"
+DETAIL:  Key (user_id)=(5) is not present in table "auth_user".
+
+[2024/Mar/21 19:53:45] - ERROR - basehttp.py on line 212:
+"POST /admin/accounts/user/1/delete/ HTTP/1.1" 500 131034
+
+
+[2024/Mar/21 19:54:10] - ERROR - log.py on line 241:
+Internal Server Error: /admin/accounts/user/1/delete/
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+psycopg2.errors.ForeignKeyViolation: insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_auth_user_id"
+DETAIL:  Key (user_id)=(5) is not present in table "auth_user".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 2106, in delete_view
+    return self._delete_view(request, object_id, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\transaction.py", line 263, in __exit__
+    connection.commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 337, in commit
+    self._commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.IntegrityError: insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_auth_user_id"
+DETAIL:  Key (user_id)=(5) is not present in table "auth_user".
+
+[2024/Mar/21 19:54:10] - ERROR - basehttp.py on line 212:
+"POST /admin/accounts/user/1/delete/ HTTP/1.1" 500 130740
+
+
+[2024/Mar/21 19:58:03] - ERROR - log.py on line 241:
+Internal Server Error: /admin/recipe/category/add/
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+psycopg2.errors.ForeignKeyViolation: insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_auth_user_id"
+DETAIL:  Key (user_id)=(5) is not present in table "auth_user".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1886, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\transaction.py", line 263, in __exit__
+    connection.commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 337, in commit
+    self._commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.IntegrityError: insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_auth_user_id"
+DETAIL:  Key (user_id)=(5) is not present in table "auth_user".
+
+[2024/Mar/21 19:58:03] - ERROR - basehttp.py on line 212:
+"POST /admin/recipe/category/add/ HTTP/1.1" 500 138535
+
+
+[2024/Mar/21 20:04:16] - ERROR - log.py on line 241:
+Internal Server Error: /admin/recipe/category/add/
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+psycopg2.errors.ForeignKeyViolation: insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_auth_user_id"
+DETAIL:  Key (user_id)=(6) is not present in table "auth_user".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1886, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\transaction.py", line 263, in __exit__
+    connection.commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 337, in commit
+    self._commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\backends\base\base.py", line 313, in _commit
+    return self.connection.commit()
+django.db.utils.IntegrityError: insert or update on table "django_admin_log" violates foreign key constraint "django_admin_log_user_id_c564eba6_fk_auth_user_id"
+DETAIL:  Key (user_id)=(6) is not present in table "auth_user".
+
+[2024/Mar/21 20:04:16] - ERROR - basehttp.py on line 212:
+"POST /admin/recipe/category/add/ HTTP/1.1" 500 138544
+
+
+[2024/Mar/21 20:40:14] - ERROR - log.py on line 241:
+Internal Server Error: /
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'detail' with arguments '('',)' not found. 1 pattern(s) tried: ['detail/(?P<recipe_slug>[-a-zA-Z0-9_]+)/\\Z']
+[2024/Mar/21 20:40:14] - ERROR - basehttp.py on line 212:
+"GET / HTTP/1.1" 500 193051
+
+
+[2024/Mar/21 20:42:48] - ERROR - log.py on line 241:
+Internal Server Error: /
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 208, in render
+    return template.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 177, in render
+    return self._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'detail' with arguments '('',)' not found. 1 pattern(s) tried: ['detail/(?P<recipe_slug>[-a-zA-Z0-9_]+)/\\Z']
+[2024/Mar/21 20:42:48] - ERROR - basehttp.py on line 212:
+"GET / HTTP/1.1" 500 242387
+
+
+[2024/Mar/21 20:42:49] - ERROR - log.py on line 241:
+Internal Server Error: /
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 208, in render
+    return template.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 177, in render
+    return self._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'detail' with arguments '('',)' not found. 1 pattern(s) tried: ['detail/(?P<recipe_slug>[-a-zA-Z0-9_]+)/\\Z']
+[2024/Mar/21 20:42:49] - ERROR - basehttp.py on line 212:
+"GET / HTTP/1.1" 500 242387
+
+
+[2024/Mar/21 20:43:46] - ERROR - log.py on line 241:
+Internal Server Error: /
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 208, in render
+    return template.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 177, in render
+    return self._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'detail' with arguments '('',)' not found. 1 pattern(s) tried: ['detail/(?P<recipe_slug>[-a-zA-Z0-9_]+)/\\Z']
+[2024/Mar/21 20:43:46] - ERROR - basehttp.py on line 212:
+"GET / HTTP/1.1" 500 242387
+
+
+[2024/Mar/21 20:43:47] - ERROR - log.py on line 241:
+Internal Server Error: /
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 208, in render
+    return template.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 177, in render
+    return self._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'detail' with arguments '('',)' not found. 1 pattern(s) tried: ['detail/(?P<recipe_slug>[-a-zA-Z0-9_]+)/\\Z']
+[2024/Mar/21 20:43:47] - ERROR - basehttp.py on line 212:
+"GET / HTTP/1.1" 500 242387
+
+
+[2024/Mar/21 20:43:48] - ERROR - log.py on line 241:
+Internal Server Error: /
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 208, in render
+    return template.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 177, in render
+    return self._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'detail' with arguments '('',)' not found. 1 pattern(s) tried: ['detail/(?P<recipe_slug>[-a-zA-Z0-9_]+)/\\Z']
+[2024/Mar/21 20:43:48] - ERROR - basehttp.py on line 212:
+"GET / HTTP/1.1" 500 242387
+
+
+[2024/Mar/21 20:45:20] - ERROR - log.py on line 241:
+Internal Server Error: /
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 880, in _resolve_lookup
+    current = current[bit]
+TypeError: 'ImageFieldFile' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 208, in render
+    return template.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 177, in render
+    return self._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 715, in resolve
+    obj = self.var.resolve(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\fields\files.py", line 66, in url
+    self._require_file()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\fields\files.py", line 41, in _require_file
+    raise ValueError(
+ValueError: The 'image' attribute has no file associated with it.
+[2024/Mar/21 20:45:20] - ERROR - basehttp.py on line 212:
+"GET / HTTP/1.1" 500 254942
+
+
+[2024/Mar/21 20:45:22] - ERROR - log.py on line 241:
+Internal Server Error: /
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 880, in _resolve_lookup
+    current = current[bit]
+TypeError: 'ImageFieldFile' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 208, in render
+    return template.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 177, in render
+    return self._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 715, in resolve
+    obj = self.var.resolve(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\fields\files.py", line 66, in url
+    self._require_file()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\db\models\fields\files.py", line 41, in _require_file
+    raise ValueError(
+ValueError: The 'image' attribute has no file associated with it.
+[2024/Mar/21 20:45:22] - ERROR - basehttp.py on line 212:
+"GET / HTTP/1.1" 500 254942
+
+
+[2024/Mar/21 20:46:06] - WARNING - basehttp.py on line 212:
+"GET /static/placeholder_image.jpg HTTP/1.1" 404 1822
+
+
+[2024/Mar/21 20:56:43] - ERROR - log.py on line 241:
+Internal Server Error: /detail/crispy-potatoes/
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 1026, in find_library
+    return parser.libraries[name]
+KeyError: 'humanize'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 1088, in load
+    lib = find_library(parser, name)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 1028, in find_library
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'humanize' is not a registered tag library. Must be one of:
+admin_list
+admin_modify
+admin_urls
+cache
+i18n
+l10n
+log
+rest_framework
+static
+tz
+widget_tweaks
+[2024/Mar/21 20:56:43] - ERROR - basehttp.py on line 212:
+"GET /detail/crispy-potatoes/ HTTP/1.1" 500 225555
+
+
+[2024/Mar/21 22:16:16] - ERROR - log.py on line 241:
+Internal Server Error: /detail/bazlama/
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'profile' with arguments '('',)' not found. 1 pattern(s) tried: ['accounts/user/(?P<slug>[-a-zA-Z0-9_]+)/\\Z']
+[2024/Mar/21 22:16:16] - ERROR - basehttp.py on line 212:
+"GET /detail/bazlama/ HTTP/1.1" 500 221652
+
+
+[2024/Mar/22 01:01:52] - WARNING - log.py on line 241:
+Not Found: /category/<slug:category_slug>/
+
+
+[2024/Mar/22 01:01:52] - WARNING - basehttp.py on line 212:
+"GET /category/%3Cslug:category_slug%3E/ HTTP/1.1" 404 3308
+
+
+[2024/Mar/22 01:02:16] - WARNING - log.py on line 241:
+Not Found: /category/
+
+
+[2024/Mar/22 01:02:16] - WARNING - basehttp.py on line 212:
+"GET /category/ HTTP/1.1" 404 3229
+
+
+[2024/Mar/22 01:04:46] - WARNING - log.py on line 241:
+Not Found: /category/
+
+
+[2024/Mar/22 01:04:46] - WARNING - basehttp.py on line 212:
+"GET /category/ HTTP/1.1" 404 3229
+
+
+[2024/Mar/22 01:09:13] - WARNING - log.py on line 241:
+Not Found: /summernote/
+
+
+[2024/Mar/22 01:09:13] - WARNING - basehttp.py on line 212:
+"GET /summernote/ HTTP/1.1" 404 3556
+
+
+[2024/Mar/22 01:11:04] - WARNING - log.py on line 241:
+Not Found: /interactions/
+
+
+[2024/Mar/22 01:11:04] - WARNING - basehttp.py on line 212:
+"GET /interactions/ HTTP/1.1" 404 3533
+
+
+[2024/Mar/22 01:11:39] - ERROR - log.py on line 241:
+Internal Server Error: /api/tasty/bookmarks/
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\rest_framework\renderers.py", line 726, in render
+    context = self.get_context(data, accepted_media_type, renderer_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\rest_framework\renderers.py", line 704, in get_context
+    'filter_form': self.get_filter_form(data, view, request),
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\rest_framework\renderers.py", line 632, in get_filter_form
+    queryset = view.get_queryset()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\rest_framework\generics.py", line 67, in get_queryset
+    assert self.queryset is not None, (
+AssertionError: 'RecipeBookmarkGenericViewSet' should either include a `queryset` attribute, or override the `get_queryset()` method.
+[2024/Mar/22 01:11:39] - ERROR - basehttp.py on line 212:
+"GET /api/tasty/bookmarks/ HTTP/1.1" 500 98260
+
+
+[2024/Mar/22 01:11:46] - WARNING - log.py on line 241:
+Bad Request: /api/tasty/comments/
+
+
+[2024/Mar/22 01:11:46] - WARNING - basehttp.py on line 212:
+"GET /api/tasty/comments/ HTTP/1.1" 400 9271
+
+
+[2024/Mar/22 01:12:01] - WARNING - log.py on line 241:
+Bad Request: /api/tasty/comments/
+
+
+[2024/Mar/22 01:12:01] - WARNING - basehttp.py on line 212:
+"GET /api/tasty/comments/ HTTP/1.1" 400 9271
+
+
+[2024/Mar/22 01:12:10] - WARNING - log.py on line 241:
+Bad Request: /api/tasty/comments/
+
+
+[2024/Mar/22 01:12:10] - WARNING - basehttp.py on line 212:
+"POST /api/tasty/comments/ HTTP/1.1" 400 9393
+
+
+[2024/Mar/22 01:12:20] - ERROR - log.py on line 241:
+Internal Server Error: /api/tasty/bookmarks/
+
+Traceback (most recent call last):
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\rest_framework\renderers.py", line 726, in render
+    context = self.get_context(data, accepted_media_type, renderer_context)
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\rest_framework\renderers.py", line 704, in get_context
+    'filter_form': self.get_filter_form(data, view, request),
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\rest_framework\renderers.py", line 632, in get_filter_form
+    queryset = view.get_queryset()
+  File "C:\Users\Hugh Smile\Documents\GitHub\TastyIdeas\venv\lib\site-packages\rest_framework\generics.py", line 67, in get_queryset
+    assert self.queryset is not None, (
+AssertionError: 'RecipeBookmarkGenericViewSet' should either include a `queryset` attribute, or override the `get_queryset()` method.
+[2024/Mar/22 01:12:20] - ERROR - basehttp.py on line 212:
+"GET /api/tasty/bookmarks/ HTTP/1.1" 500 98260
+
+
+[2024/Mar/22 01:19:09] - WARNING - log.py on line 241:
+Bad Request: /api/tasty/comments/
+
+
+[2024/Mar/22 01:19:09] - WARNING - basehttp.py on line 212:
+"GET /api/tasty/comments/?format=api HTTP/1.1" 400 9348
+
+
+[2024/Mar/22 01:19:16] - WARNING - log.py on line 241:
+Method Not Allowed: /api/tasty/ingredients/
+
+
+[2024/Mar/22 01:19:16] - WARNING - basehttp.py on line 212:
+"GET /api/tasty/ingredients/?format=api HTTP/1.1" 405 8018
+
+
