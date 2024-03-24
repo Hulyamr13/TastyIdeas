@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'django_admin_logs',
     'django.contrib.humanize',
+
 ]
 
 MIDDLEWARE = [
@@ -170,14 +171,14 @@ DJOSER = {
     },
 }
 
-RECIPES_PAGINATE_BY = 10  # Display 10 recipes per page
+RECIPES_PAGINATE_BY = 9  # Display 10 recipes per page
 EMAIL_SEND_INTERVAL_SECONDS = 300  # Send verification emails every 5 minutes
 CATEGORIES_PAGINATE_BY = 20  # Display 20 categories per page
 COMMENTS_PAGINATE_BY = 50  # Display 50 comments per page
+EMAIL_EXPIRATION_HOURS = 24
 
 DJANGO_ADMIN_LOGS_DELETABLE = True
 DJANGO_ADMIN_LOGS_ENABLED = False
-
 
 # Logging
 
