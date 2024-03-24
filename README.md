@@ -18,6 +18,8 @@ Tasty Ideas is a web application designed to help users discover, save, and expl
 ## Frontend Technologies
 - HTML, CSS, JavaScript
 
+The trifecta for a dynamic and responsive user interface, ensuring a seamless experience across devices.
+
 ## Database
 - PostgreSQL
 
@@ -27,6 +29,8 @@ Tasty Ideas is a web application designed to help users discover, save, and expl
 ## Background Processing
 - Celery, Redis
 
+A powerful duo for handling asynchronous tasks and real-time operations without slowing down user experience.
+
 ## Additional Packages
 - Django Rest Framework Authentication Token
 - Djoser
@@ -35,7 +39,8 @@ Tasty Ideas is a web application designed to help users discover, save, and expl
 - Widget Tweaks
 - Django Admin Logs
 - Django Humanize
+  
+Each selected to streamline development and enhance functionality, from user authentication to enriching text input.
 
 # Web Page Design 
-- bootstrap@5.3.0-alpha1
-- Google Material Design 
+-	bootstrap@5.3.0-alpha1, Google Material Design: For a modern, aesthetically pleasing design that’s both functional and inviting.
