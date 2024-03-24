@@ -51,7 +51,7 @@ class UserRegistrationForm(auth_forms.UserCreationForm):
 class UserLoginForm(auth_forms.AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control',
-        'placeholder': 'Enter Username or Email',
+        'placeholder': 'Enter Username',
     }))
     password = forms.CharField(widget=forms.PasswordInput(attrs={
         'class': 'form-control',
@@ -93,7 +93,6 @@ class UserProfileForm(auth_forms.UserChangeForm):
 
     def __init__(self, *args, **kwargs):
         """
-        Тук се задава началната стойност за полето на формуляра, тъй като то не е включено в кортежа с полета.
         Това позволява на потребителя да вижда попълненото поле, без да сървърът да приема информация от него.
         """
         instance = kwargs.get('instance')

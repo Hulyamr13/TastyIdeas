@@ -43,7 +43,7 @@ class SendVerificationEmailCreateAPIView(CreateAPIView):
             return Response(response, status=status.HTTP_429_TOO_MANY_REQUESTS)
         else:
             verification = user.create_email_verification()
-            send_verification_email.delay(object_id=verification.id)
+            send_verification_email.delay(verification.id)
             serializer = self.get_serializer(verification, partial=True)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 

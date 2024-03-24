@@ -11,7 +11,7 @@
           {% csrf_token %}
 
           <div class="mb-4">
-            <h2 class="text-center mt-2">Sign Up</h2>
+            <h2 class="text-center mt-2">Register</h2>
           </div>
           {% if form.errors %}
             <div class="alert alert-warning" role="alert">
@@ -49,13 +49,13 @@
           </div>
           <hr>
           <div class="text-center">
-            <button type="submit" class="btn btn-outline-success">Sign Up</button>
+            <button type="submit" class="btn btn-outline-success">Register</button>
           </div>
           <div class="text-center mb-3">
             <div>
               <p class="my-0">or</p>
               <a class="link-secondary text-decoration-none" href="{% url 'accounts:login' %}">
-                Sign In
+                Login
               </a>
             </div>
           </div>

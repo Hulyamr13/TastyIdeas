@@ -21,7 +21,7 @@ class UserRegistrationView(LogoutRequiredMixin, SuccessMessageMixin, TitleMixin,
     model = User
     form_class = account_forms.UserRegistrationForm
     template_name = 'accounts/registration.html'
-    success_message = 'You have successfully registered!'
+    success_message = 'Registration successful!'
     success_url = reverse_lazy('accounts:login')
     title = 'Tasty | Registration'
 
@@ -46,7 +46,7 @@ class UserLoginView(LogoutRequiredMixin, TitleMixin, auth_views.LoginView):
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        messages.warning(self.request, 'The entered data is incorrect, please try again.')
+        messages.warning(self.request, 'Invalid data entered. Please try again.')
         return super().form_invalid(form)
 
 
@@ -75,7 +75,7 @@ class UserProfilePasswordView(SuccessMessageMixin, auth_views.PasswordChangeView
     form_class = account_forms.PasswordChangeForm
     template_name = 'accounts/profile/profile.html'
     title = 'Tasty | Password'
-    success_message = 'Your password has been successfully updated!'
+    success_message = 'Password updated successfully!'
 
     def get_success_url(self):
         return reverse_lazy('accounts:profile-password', args={self.request.user.slug})
@@ -85,7 +85,7 @@ class UserProfileEmailView(SuccessMessageMixin, auth_views.PasswordChangeView):
     form_class = account_forms.EmailChangeForm
     template_name = 'accounts/profile/profile.html'
     title = 'Tasty | Email'
-    success_message = 'Your email has been successfully changed!'
+    success_message = 'Email updated successfully!'
 
     def get_success_url(self):
         return reverse_lazy('accounts:profile-email', args={self.request.user.slug})
@@ -106,13 +106,13 @@ class SendVerificationEmailView(LoginRequiredMixin, TitleMixin, TemplateView):
         seconds_since_last_email = user.seconds_since_last_email_verification()
 
         if user.is_verified:
-            messages.warning(request, 'You have already verified your email.')
+            messages.warning(request, 'Your email is already verified.')
         elif seconds_since_last_email < self.sending_interval:
             seconds_left = self.sending_interval - seconds_since_last_email
             messages.warning(request, f'Please wait {seconds_left} to resend the confirmation email.')
         else:
             verification = user.create_email_verification()
-            send_verification_email.delay(object_id=verification.id)
+            send_verification_email.delay(verification.id)
         return super().get(request, *args, **kwargs)
 
 
@@ -130,7 +130,7 @@ class EmailVerificationView(TemplateView):
         verification = get_object_or_404(EmailVerification, user=user, code=code)
 
         if user.is_verified:
-            messages.warning(request, 'Your email has already been verified.')
+            messages.warning(request, 'Your email is already verified.')
         elif not verification.is_expired():
             user.verify()
         else:
@@ -145,9 +145,9 @@ class PasswordResetView(LogoutRequiredMixin, SuccessMessageMixin, auth_views.Pas
     email_template_name = 'accounts/password/password_reset_email.html'
     form_class = account_forms.PasswordResetForm
     success_url = reverse_lazy('accounts:reset_password')
-    success_message = 'We’ve emailed you instructions for setting your password, if an account exists with the email ' \
-                      'you entered. You should receive them shortly. If you don’t receive an email, please make sure ' \
-                      'you’ve entered the address you registered with, and check your spam folder.'
+    success_message = 'We’ve emailed you instructions for setting your password. ' \
+                      'You should receive them shortly. If you don’t receive an email, ' \
+                      'please check your spam folder.'
 
 
 class PasswordResetConfirmView(LogoutRequiredMixin, SuccessMessageMixin, TitleMixin,
@@ -156,4 +156,4 @@ class PasswordResetConfirmView(LogoutRequiredMixin, SuccessMessageMixin, TitleMi
     template_name = 'accounts/password/password_reset_confirm.html'
     form_class = account_forms.SetPasswordForm
     success_url = reverse_lazy('accounts:login')
-    success_message = 'Your password has been set. You can now sign into your account with the new password.'
+    success_message = 'Your password has been set successfully. You can now sign in to your account.'
