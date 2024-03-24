@@ -10,7 +10,7 @@ Tasty Ideas is a web application designed to help users discover, save, and expl
 - Password Reset: Easily reset your password if you forget it.
 - Email Verification: Ensure the security of your account with email verification.
 
-# Използвани Технологии
+# Used Technologies
 
 ## Backend Framework
 - Django
@@ -27,7 +27,7 @@ Tasty Ideas is a web application designed to help users discover, save, and expl
 ## Background Processing
 - Celery, Redis
 
-## Допълнителни Пакети
+## Additional Packages
 - Django Rest Framework Authentication Token
 - Djoser
 - Django Cleanup
