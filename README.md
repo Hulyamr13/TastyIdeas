@@ -1,7 +1,7 @@
-# Tasty Ideas
+# 👩🏻‍🍳 Tasty Ideas
 Tasty Ideas is a web application designed to help users discover, save, and explore recipes effortlessly. Whether you're a seasoned chef or just starting in the kitchen, Tasty Ideas offers a convenient platform to find culinary inspiration, organize your favorite recipes, and engage with a community of food enthusiasts.
 
-# Features
+# 🌟 Features
 - Recipe Search: Easily find recipes by category or keywords.
 - Bookmarking: Save your favorite recipes for quick access later.
 - Detailed Recipe View: Explore recipes in-depth with detailed instructions and ingredient lists.
@@ -10,7 +10,7 @@ Tasty Ideas is a web application designed to help users discover, save, and expl
 - Password Reset: Easily reset your password if you forget it.
 - Email Verification: Ensure the security of your account with email verification.
 
-# Used Technologies
+# 💻 Used Technologies
 
 ## Backend Framework
 - Django
@@ -42,5 +42,5 @@ A powerful duo for handling asynchronous tasks and real-time operations without 
   
 Each selected to streamline development and enhance functionality, from user authentication to enriching text input.
 
-# Web Page Design 
+# 🛠️ Web Page Design 
 -	bootstrap@5.3.0-alpha1, Google Material Design: For a modern, aesthetically pleasing design that’s both functional and inviting.
