@@ -17,7 +17,7 @@ class RecipeBookmark(models.Model):
 class RecipeComment(models.Model):
     recipe = models.ForeignKey(to='recipe.Recipe', on_delete=models.CASCADE)
     author = models.ForeignKey(to='accounts.User', null=True, on_delete=models.SET_NULL)
-    text = models.CharField(max_length=516)
+    text = models.CharField(max_length=500)
     created_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
