@@ -9,9 +9,6 @@
       <div class="card-img-scale-wrp">
         {% if recipe.image %}
           <img src="{{ recipe.image.url }}" class="card-img-top" alt="recipe_img">
-        {% else %}
-          <!-- Placeholder image or alternative content when no image is available -->
-          <img src="{% static 'placeholder_image.jpg' %}" class="card-img-top" alt="placeholder_image">
         {% endif %}
       </div>
     </a>

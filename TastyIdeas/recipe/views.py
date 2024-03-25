@@ -13,6 +13,9 @@ from TastyIdeas.recipe.models import Category, Recipe
 
 
 class RecipesListView(TitleMixin, ListView):
+    """
+    View for displaying a list of recipes.
+    """
     model = Recipe
     template_name = 'recipe/index.html'
     ordering = ('name',)
@@ -20,6 +23,9 @@ class RecipesListView(TitleMixin, ListView):
     paginate_by = settings.RECIPES_PAGINATE_BY
 
     def get_queryset(self):
+        """
+        Get the queryset of recipes based on search or selected category.
+        """
         queryset = self.model.objects.cached_queryset()
 
         selected_category_slug = self.kwargs.get('category_slug')
@@ -33,6 +39,9 @@ class RecipesListView(TitleMixin, ListView):
         return queryset.prefetch_related('bookmarks').order_by(*self.ordering)
 
     def get_paginator_url(self):
+        """
+        Get the URL for paginator.
+        """
         selected_category_slug = self.kwargs.get('category_slug')
         search = self.request.GET.get('search')
 
@@ -43,6 +52,9 @@ class RecipesListView(TitleMixin, ListView):
         return reverse('recipe:index') + '?page='
 
     def get_context_data(self, *, object_list=None, **kwargs):
+        """
+        Add additional context data.
+        """
         context = super().get_context_data()
 
         categories = Category.objects.cached_queryset().order_by('name')
@@ -50,7 +62,6 @@ class RecipesListView(TitleMixin, ListView):
 
         context['categories'] = categories[:settings.CATEGORIES_PAGINATE_BY]
         context['popular_recipes'] = popular_recipes[:3]
-
         context['has_more_categories'] = categories.count() > settings.CATEGORIES_PAGINATE_BY
         context['selected_category_slug'] = self.kwargs.get('category_slug')
         context['paginator_url'] = self.get_paginator_url()
@@ -61,12 +72,18 @@ class RecipesListView(TitleMixin, ListView):
 
 
 class RecipeDetailView(FormMixin, DetailView):
+    """
+    View for displaying details of a recipe.
+    """
     model = Recipe
     slug_url_kwarg = 'recipe_slug'
     template_name = 'recipe/recipe_description.html'
     form_class = RecipeCommentForm
 
     def _has_viewed(self, request):
+        """
+        Check if the recipe has been viewed.
+        """
         remote_addr = request.META.get('REMOTE_ADDR')
         recipe_slug = self.kwargs.get(self.slug_url_kwarg)
 
@@ -78,16 +95,25 @@ class RecipeDetailView(FormMixin, DetailView):
         return has_viewed
 
     def _increment_views(self):
+        """
+        Increment the views count for the recipe.
+        """
         self.object.views += 1
         self.object.save()
 
     def get(self, request, *args, **kwargs):
+        """
+        Override the get method to handle view counting.
+        """
         response = super().get(request, *args, **kwargs)
         if not self._has_viewed(request):
             self._increment_views()
         return response
 
     def get_context_data(self, **kwargs):
+        """
+        Add additional context data.
+        """
         context = super().get_context_data()
 
         comments = self.object.comments().order_by('-created_date')
@@ -98,4 +124,5 @@ class RecipeDetailView(FormMixin, DetailView):
         context['has_more_comments'] = comments_count > settings.COMMENTS_PAGINATE_BY
         context['ingredients'] = self.object.ingredients()
         context['title'] = f'Tasty | {self.object.name}'
+
         return context

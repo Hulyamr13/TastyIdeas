@@ -92,9 +92,6 @@ class UserProfileForm(auth_forms.UserChangeForm):
     }))
 
     def __init__(self, *args, **kwargs):
-        """
-        Това позволява на потребителя да вижда попълненото поле, без да сървърът да приема информация от него.
-        """
         instance = kwargs.get('instance')
         kwargs['initial'] = {'email': instance.email}
         super().__init__(*args, **kwargs)

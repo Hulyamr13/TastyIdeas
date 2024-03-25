@@ -1,5 +1,7 @@
 from pathlib import Path
 
+from django.core.cache.backends import redis
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -172,13 +174,32 @@ DJOSER = {
 }
 
 RECIPES_PAGINATE_BY = 9  # Display 10 recipes per page
-EMAIL_SEND_INTERVAL_SECONDS = 300  # Send verification emails every 5 minutes
-CATEGORIES_PAGINATE_BY = 20  # Display 20 categories per page
+CATEGORIES_PAGINATE_BY = 10  # Display 20 categories per page
 COMMENTS_PAGINATE_BY = 50  # Display 50 comments per page
+
 EMAIL_EXPIRATION_HOURS = 24
+EMAIL_SEND_INTERVAL_SECONDS = 300  # Send verification emails every 5 minutes
+
+# Cache settings using Redis
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
+
 
 DJANGO_ADMIN_LOGS_DELETABLE = True
 DJANGO_ADMIN_LOGS_ENABLED = False
+
 
 # Logging
 
