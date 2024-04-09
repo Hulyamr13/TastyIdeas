@@ -95,7 +95,7 @@ class EmailVerification(models.Model):
         context = {
             'user': self.user,
             'protocol': protocol,
-            'verification_link': settings.DOMAIN_NAME + link,
+            'verification_link': link,
         }
         msg = convert_html_to_email_message(subject_template_name, html_email_template_name, [self.user.email], context)
         msg.send()
