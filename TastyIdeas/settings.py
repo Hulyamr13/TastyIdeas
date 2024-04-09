@@ -1,5 +1,5 @@
 from pathlib import Path
-
+import os
 from django.core.cache.backends import redis
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'django_admin_logs',
     'django.contrib.humanize',
-
+    'celery',
 ]
 
 MIDDLEWARE = [
@@ -178,7 +178,7 @@ CATEGORIES_PAGINATE_BY = 10  # Display 20 categories per page
 COMMENTS_PAGINATE_BY = 50  # Display 50 comments per page
 
 EMAIL_EXPIRATION_HOURS = 24
-EMAIL_SEND_INTERVAL_SECONDS = 300  # Send verification emails every 5 minutes
+EMAIL_SEND_INTERVAL_SECONDS = 10  # Send verification emails every 5 minutes
 
 # Cache settings using Redis
 
@@ -196,11 +196,17 @@ CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 CELERY_TASK_TIME_LIMIT = 30 * 60
 
-DJANGO_ADMIN_LOGS_DELETABLE = True
-DJANGO_ADMIN_LOGS_ENABLED = False
-
+# SMTP настройки
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get("AA_EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("AA_EMAIL_HOST_PASSWORD")
+PROTOCOL = 'smtp'
 
 # Logging
+
 
 FILE_HANDLER = {
     'class': 'logging.handlers.RotatingFileHandler',
