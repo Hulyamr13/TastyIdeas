@@ -177,7 +177,7 @@ CATEGORIES_PAGINATE_BY = 10  # Display 20 categories per page
 COMMENTS_PAGINATE_BY = 50  # Display 50 comments per page
 
 EMAIL_EXPIRATION_HOURS = 24
-EMAIL_SEND_INTERVAL_SECONDS = 10  # Send verification emails every 5 minutes
+EMAIL_SEND_INTERVAL_SECONDS = 10 
 
 # Cache settings using Redis
 
