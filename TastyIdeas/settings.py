@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django_cleanup',
     'django_summernote',
     'widget_tweaks',
-    'django_admin_logs',
     'django.contrib.humanize',
     'celery',
 ]
